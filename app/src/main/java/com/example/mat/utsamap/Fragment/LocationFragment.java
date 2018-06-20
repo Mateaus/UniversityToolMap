@@ -33,11 +33,6 @@ public class LocationFragment extends Fragment {
 
     private static final String TAG = "LocationFragment";
 
-    /*private String npb = pickLocationFragment.getNPBLocation();
-    private String mh = pickLocationFragment.getMHLocation();
-    private String ms = pickLocationFragment.getMSLocation();
-    private String fln = pickLocationFragment.getFLNLocation();
-    private String jpl = pickLocationFragment.getJPLLocation();*/
 
     private TextView buildingName;
     private ImageView buildingImageView;

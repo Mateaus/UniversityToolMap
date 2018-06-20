@@ -10,9 +10,13 @@ import android.util.Log;
 import com.example.mat.utsamap.Fragment.LocationFragment;
 import com.example.mat.utsamap.Fragment.PickLocationFragment;
 import com.example.mat.utsamap.Fragment.MainFragment;
+import com.example.mat.utsamap.Fragment.UTSAMapFragment;
 import com.example.mat.utsamap.R;
 
-public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener, PickLocationFragment.PickLocationFragmentInteractionListener, LocationFragment.LocationFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentInteractionListener
+        , PickLocationFragment.PickLocationFragmentInteractionListener
+        , LocationFragment.LocationFragmentInteractionListener
+        , UTSAMapFragment.UTSAMapFragmentInteractionListener{
 
     private static final String TAG = "MainActivity";
     private FragmentManager fragmentManager;
@@ -35,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         this.getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, mainFragment).commit();
     }
 
+    public void loadUTSAMapFragmentScreen() {
+        UTSAMapFragment utsaMapFragment = new UTSAMapFragment();
+        this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, utsaMapFragment).addToBackStack(null).commit();
+    }
+
     public void loadPickLocationFragmentScreen() {
         PickLocationFragment pickLocationFragment = new PickLocationFragment();
         this.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pickLocationFragment).addToBackStack(null).commit();
@@ -51,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
 
     @Override
     public void onMainFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onUTSAMapFragmentInteraction(Uri uri) {
 
     }
 

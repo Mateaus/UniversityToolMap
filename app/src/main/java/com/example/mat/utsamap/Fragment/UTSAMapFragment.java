@@ -7,21 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.mat.utsamap.Activity.MainActivity;
 import com.example.mat.utsamap.R;
-
+import com.github.chrisbanes.photoview.PhotoView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MainFragment.MainFragmentInteractionListener} interface
+ * {@link UTSAMapFragment.UTSAMapFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MainFragment#newInstance} factory method to
+ * Use the {@link UTSAMapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment {
+public class UTSAMapFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,9 +29,9 @@ public class MainFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private MainFragmentInteractionListener mListener;
+    private UTSAMapFragmentInteractionListener mListener;
 
-    public MainFragment() {
+    public UTSAMapFragment() {
         // Required empty public constructor
     }
 
@@ -43,11 +41,11 @@ public class MainFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MainFragment.
+     * @return A new instance of fragment UTSAMapFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainFragment newInstance(String param1, String param2) {
-        MainFragment fragment = new MainFragment();
+    public static UTSAMapFragment newInstance(String param1, String param2) {
+        UTSAMapFragment fragment = new UTSAMapFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,26 +65,13 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_main, container, false);
+        View v = inflater.inflate(R.layout.fragment_utsamap, container, false);
 
-        Button locationButton = (Button)v.findViewById(R.id.locationBtn);
-        Button utsamapButton = (Button)v.findViewById(R.id.mapBtn);
+        PhotoView UTSAMap = (PhotoView)v.findViewById(R.id.photo_view);
+        UTSAMap.setImageDrawable(getResources().getDrawable(R.drawable.utsa_map));
 
-        utsamapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity mainActivity = (MainActivity)getActivity();
-                mainActivity.loadUTSAMapFragmentScreen();
-            }
-        });
 
-        locationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity mainActivity = (MainActivity)getActivity();
-                mainActivity.loadPickLocationFragmentScreen();
-            }
-        });
+
 
         return v;
     }
@@ -94,15 +79,15 @@ public class MainFragment extends Fragment {
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onMainFragmentInteraction(uri);
+            mListener.onUTSAMapFragmentInteraction(uri);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof MainFragmentInteractionListener) {
-            mListener = (MainFragmentInteractionListener) context;
+        if (context instanceof UTSAMapFragmentInteractionListener) {
+            mListener = (UTSAMapFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -125,8 +110,8 @@ public class MainFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface MainFragmentInteractionListener {
+    public interface UTSAMapFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onMainFragmentInteraction(Uri uri);
+        void onUTSAMapFragmentInteraction(Uri uri);
     }
 }

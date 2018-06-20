@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mat.utsamap.R;
+import com.github.chrisbanes.photoview.PhotoView;
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +37,7 @@ public class LocationFragment extends Fragment {
 
 
     private TextView buildingName;
-    private ImageView buildingImageView;
+    private PhotoView buildingPhotoView;
 
     private LocationFragmentInteractionListener mListener;
 
@@ -77,7 +79,7 @@ public class LocationFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_location, container, false);
 
         buildingName = (TextView)v.findViewById(R.id.bnameTv);
-        buildingImageView = (ImageView)v.findViewById(R.id.bimageV);
+        buildingPhotoView = (PhotoView)v.findViewById(R.id.photo_view);
 
         Log.e(TAG, "We are inside LocationFragment ");
         Bundle bundle = getArguments();
@@ -86,7 +88,7 @@ public class LocationFragment extends Fragment {
 
         Log.e(TAG, "Location inside Fragment: " + location);
 
-        // TODO: Finish this area whenever I have the information needed.
+        // function to change location appearance
         locationBuilding(location);
 
 
@@ -100,10 +102,10 @@ public class LocationFragment extends Fragment {
 
         switch(string) {
             case "npb":
-                buildingImageView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_logo));
+                buildingPhotoView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_logo));
                 break;
             case "mh":
-                buildingImageView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_logo3));
+                buildingPhotoView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_map));
                 break;
             case "ms":
                 break;

@@ -87,14 +87,32 @@ public class LocationFragment extends Fragment {
         Log.e(TAG, "Location inside Fragment: " + location);
 
         // TODO: Finish this area whenever I have the information needed.
-        if (location.equalsIgnoreCase("npb")) {
-            buildingImageView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_logo));
-        }
+        locationBuilding(location);
+
 
 
 
 
         return v;
+    }
+
+    private void locationBuilding(String string) {
+
+        switch(string) {
+            case "npb":
+                buildingImageView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_logo));
+                break;
+            case "mh":
+                buildingImageView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_logo3));
+                break;
+            case "ms":
+                break;
+            case "fln":
+                break;
+            case "jpl":
+                break;
+        }
+        return;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

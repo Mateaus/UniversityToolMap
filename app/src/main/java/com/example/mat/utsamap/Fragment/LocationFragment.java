@@ -101,17 +101,17 @@ public class LocationFragment extends Fragment {
     private void locationBuilding(String string) {
 
         switch(string) {
-            case "npb":
+            case "NPB Building":
                 buildingPhotoView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_logo));
                 break;
-            case "mh":
+            case "MH Building":
                 buildingPhotoView.setImageDrawable(getResources().getDrawable(R.drawable.utsa_map));
                 break;
-            case "ms":
+            case "MS Building":
                 break;
-            case "fln":
+            case "FLN Building":
                 break;
-            case "jpl":
+            case "JPL Building":
                 break;
         }
         return;

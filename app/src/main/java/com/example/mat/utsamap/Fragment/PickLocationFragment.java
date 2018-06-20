@@ -97,19 +97,19 @@ public class PickLocationFragment extends Fragment implements View.OnClickListen
 
         switch (v.getId()){
             case R.id.npbBtn:
-                loadMapLocationFragment("npb");
+                loadMapLocationFragment("NPB Building");
                 break;
             case R.id.mhBtn:
-                loadMapLocationFragment("mh");
+                loadMapLocationFragment("MH Building");
                 break;
             case R.id.msBtn:
-                loadMapLocationFragment("ms");
+                loadMapLocationFragment("MS Building");
                 break;
             case R.id.flnBtn:
-                loadMapLocationFragment("fln");
+                loadMapLocationFragment("FLN Building");
                 break;
             case R.id.jplBtn:
-                loadMapLocationFragment("jpl");
+                loadMapLocationFragment("JPL Building");
                 break;
         }
     }
